@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Giải thích từng phần
 
-First, run the development server:
+### 1. `app/`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Mục đích**: Thư mục `app` là nơi bạn định nghĩa cấu trúc ứng dụng, bao gồm các trang và layouts.
+- **Cấu trúc**:
+  - `page.js`: Tệp này chứa nội dung cho trang chính của ứng dụng. Trong Next.js 14, bạn có thể tạo nhiều trang bằng cách tạo các tệp `page.js` trong các thư mục con tương ứng.
+  - `layout.js`: Tệp này chứa layout chính của ứng dụng, cho phép bạn chia sẻ các phần tử như header, footer giữa các trang khác nhau.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. `public/`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Mục đích**: Chứa các tệp tĩnh mà không cần xử lý. Tất cả các tệp trong thư mục này có thể được truy cập trực tiếp qua URL.
+- **Ví dụ**: Hình ảnh, favicon, tệp CSS hoặc JavaScript không được xử lý bởi Webpack.
+- **Cách sử dụng**: Nếu bạn có tệp hình ảnh như `logo.png`, bạn có thể truy cập nó qua `http://localhost:3000/logo.png`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 3. `src/`
 
-## Learn More
+- **Mục đích**: Đây là nơi bạn tổ chức mã nguồn của ứng dụng, bao gồm các thành phần và các tệp liên quan.
+- **Cấu trúc**:
+  - `components/`: Thư mục này chứa các component React mà bạn tạo. Ví dụ: `Header.js`, `Footer.js`, v.v.
+  - `styles/`: Chứa các tệp CSS hoặc các tệp CSS Modules cho ứng dụng.
 
-To learn more about Next.js, take a look at the following resources:
+### 4. `.gitignore`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Mục đích**: Tệp này chỉ định các tệp hoặc thư mục mà Git sẽ bỏ qua khi thực hiện commit. Thường chứa các thư mục như `node_modules/`, `dist/`, hoặc các tệp nhạy cảm khác.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 5. `package.json`
 
-## Deploy on Vercel
+- **Mục đích**: Chứa thông tin về dự án, bao gồm các phụ thuộc, script và thông tin khác.
+- **Các phần quan trọng**:
+  - `dependencies`: Các thư viện và framework mà ứng dụng cần.
+  - `scripts`: Các lệnh tiện ích như `dev`, `build`, `start`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 6. `next.config.js`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Mục đích**: Tệp cấu hình cho Next.js. Bạn có thể tùy chỉnh các thiết lập như routing, build options, hoặc thêm middleware.
+- **Ví dụ**: 
+  ```javascript
+  module.exports = {
+    reactStrictMode: true,
+    swcMinify: true,
+  };
